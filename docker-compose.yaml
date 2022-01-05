@@ -1,0 +1,11 @@
+version: '3.8'
+
+
+services:
+  apache:
+    image: twyleg/apache-reverse-proxy:latest
+    restart: always
+    network_mode: "host"
+    volumes:
+      - /var/docker/apache/sites-enabled/:/etc/apache2/sites-enabled/:ro
+      - /var/docker/apache/letsencrypt/:/etc/letsencrypt/:rw
